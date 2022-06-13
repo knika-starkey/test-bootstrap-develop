@@ -122,16 +122,16 @@ export default function basket() {
         }
         totalItems +=
           "<td>" +
-          '<span class="plus glyphicon glyphicon-plus" data-id="' +
+          '<i class="fa-solid fa-plus" data-id="' +
           items +
-          '" onclick="addItem(this)"></span>' +
+          '" onclick="addItem(this)"></i>' +
           "</td>";
 
         totalItems +=
           "<td>" +
-          '<span class="minus glyphicon glyphicon-minus" data-id="' +
+          '<i class="fa-solid fa-minus" data-id="' +
           items +
-          '" onclick="removeItem(this)"></span>' +
+          '" onclick="removeItem(this)"></i>' +
           "</td>";
 
         totalItems += "</tr>";

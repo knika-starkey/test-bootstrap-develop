@@ -19113,16 +19113,16 @@ function basket() {
         }
         totalItems +=
           "<td>" +
-          '<span class="plus glyphicon glyphicon-plus" data-id="' +
+          '<i class="fa-solid fa-plus" data-id="' +
           items +
-          '" onclick="addItem(this)"></span>' +
+          '" onclick="addItem(this)"></i>' +
           "</td>";
 
         totalItems +=
           "<td>" +
-          '<span class="minus glyphicon glyphicon-minus" data-id="' +
+          '<i class="fa-solid fa-minus" data-id="' +
           items +
-          '" onclick="removeItem(this)"></span>' +
+          '" onclick="removeItem(this)"></i>' +
           "</td>";
 
         totalItems += "</tr>";
@@ -19199,13 +19199,15 @@ function chatbot() {
     document.getElementById("chatbot").addEventListener("click", function () {
       $("#chatbot").toggleClass("show");
     });
-    document.getElementById("answers").addEventListener("click", function () {
-      return false;
+    document.getElementById("answers").addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
     });
-    document.getElementById("question").addEventListener("click", function () {
-      return false;
+    document.getElementById("question").addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
     });
-    document.getElementById("ok").addEventListener("click", function () {
+    document.getElementById("ok").addEventListener("click", (e) => {
       let q = $("#question").val();
       $("#question").val("");
       //alert(q);
@@ -19240,13 +19242,14 @@ function chatbot() {
         }, 1000);
       }
 
-      return false;
+      e.stopPropagation();
+      e.preventDefault();
     });
     document
       .getElementById("question")
-      .addEventListener("keypress", "keyup", function (event) {
-        if (event.keyCode == 13) {
-          document.getElementById("ok").addEventListener("click", function () {
+      .addEventListener("keypress", "keyup", function (e) {
+        if (e.keyCode == 13) {
+          document.getElementById("ok").addEventListener("click", () => {
             return false;
           });
         }
